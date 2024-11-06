@@ -13,7 +13,7 @@ const Add = ({url}) => {
     price: "",
     category: "None",
     rating:"",
-    kind:"",
+    kind:"None",
   })
 
   const onChangeHandler = (event) => {
@@ -41,7 +41,7 @@ const Add = ({url}) => {
           price: "",
           category: "None",
           rating:"",
-          kind:"",
+          kind:"None",
         })
         setImage(false);
         toast.success(response.data.message)
@@ -72,11 +72,15 @@ const Add = ({url}) => {
         <div className='product-rating-kind'>
         <div className='product-rating flex-col'>
           <p>Food rating</p>
-          <textarea onChange={onChangeHandler} value={data.rating} type= "Number" name='rating' placeholder='Rating' required min={0}></textarea>
+          <input onChange={onChangeHandler} value={data.rating} type="Number" step={0.1} name='rating' placeholder='1-5' required min={0} max={5}/>
         </div>
         <div className='product-kind flex-col'>
           <p>Food kind</p>
-          <textarea onChange={onChangeHandler} value={data.kind} name='kind' placeholder='Kind' required></textarea>
+          <select onChange={onChangeHandler} name="kind" required >
+          <option value="None">None</option>
+          <option value="Veg">Veg</option>
+          <option value="Non-Veg">Non-Veg</option>
+          </select>
         </div>
         </div>
         <div className="add-category-price">
