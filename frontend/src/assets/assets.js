@@ -157,8 +157,8 @@ export const food_list = [
         price: 120,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Salad",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     },
     {
         _id: "2",
@@ -167,8 +167,8 @@ export const food_list = [
         price: 180,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Salad",
-        stars: "5",
-        type: "veg"
+        rating: "5",
+        kind: "veg"
     }, {
         _id: "3",
         name: "Clover Salad",
@@ -176,8 +176,8 @@ export const food_list = [
         price: 160,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Salad",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "4",
         name: "Chicken Salad",
@@ -185,8 +185,8 @@ export const food_list = [
         price: 240,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Salad",
-        stars: "4",
-        type: "non-veg"
+        rating: "4",
+        kind: "non-veg"
     }, {
         _id: "5",
         name: "Lasagna Rolls",
@@ -194,8 +194,8 @@ export const food_list = [
         price: 140,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Rolls",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "6",
         name: "Peri Peri Rolls",
@@ -203,8 +203,8 @@ export const food_list = [
         price: 120,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Rolls",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "7",
         name: "Chicken Rolls",
@@ -212,8 +212,8 @@ export const food_list = [
         price: 200,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Rolls",
-        stars: "4",
-        type: "non-veg"
+        rating: "4",
+        kind: "non-veg"
     }, {
         _id: "8",
         name: "Veg Rolls",
@@ -221,8 +221,8 @@ export const food_list = [
         price: 150,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Rolls",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "9",
         name: "Ripple Ice Cream",
@@ -230,8 +230,8 @@ export const food_list = [
         price: 140,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Deserts",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "10",
         name: "Fruit Ice Cream",
@@ -239,8 +239,8 @@ export const food_list = [
         price: 220,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Deserts",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "11",
         name: "Jar Ice Cream",
@@ -248,8 +248,8 @@ export const food_list = [
         price: 100,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Deserts",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "12",
         name: "Vanilla Ice Cream",
@@ -257,8 +257,8 @@ export const food_list = [
         price: 120,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Deserts",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     },
     {
         _id: "13",
@@ -267,8 +267,8 @@ export const food_list = [
         price: 120,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Sandwich",
-        stars: "4",
-        type: "non-veg"
+        rating: "4",
+        kind: "non-veg"
     },
     {
         _id: "14",
@@ -277,8 +277,8 @@ export const food_list = [
         price: 180,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Sandwich",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "15",
         name: "Grilled Sandwich",
@@ -286,8 +286,8 @@ export const food_list = [
         price: 160,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Sandwich",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "16",
         name: "Bread Sandwich",
@@ -295,8 +295,8 @@ export const food_list = [
         price: 240,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Sandwich",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "17",
         name: "Cup Cake",
@@ -304,8 +304,8 @@ export const food_list = [
         price: 140,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Cake",
-        stars: "4",
-        type: "non-veg"
+        rating: "4",
+        kind: "non-veg"
     }, {
         _id: "18",
         name: "Vegan Cake",
@@ -313,8 +313,8 @@ export const food_list = [
         price: 120,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Cake",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "19",
         name: "Butterscotch Cake",
@@ -322,8 +322,8 @@ export const food_list = [
         price: 200,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Cake",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "20",
         name: "Sliced Cake",
@@ -331,8 +331,8 @@ export const food_list = [
         price: 150,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Cake",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "21",
         name: "Dum Biryani",
@@ -340,8 +340,8 @@ export const food_list = [
         price: 170,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Biryani",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "22",
         name: "Paneer Biryani",
@@ -349,8 +349,8 @@ export const food_list = [
         price: 140,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Biryani",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "23",
         name: "Mixed Veg Biryani",
@@ -358,8 +358,8 @@ export const food_list = [
         price: 160,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Biryani",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "24",
         name: "Kolkata Biryani",
@@ -367,8 +367,8 @@ export const food_list = [
         price: 150,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Biryani",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     },
     {
         _id: "25",
@@ -377,8 +377,8 @@ export const food_list = [
         price: 120,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pasta",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     },
     {
         _id: "26",
@@ -387,8 +387,8 @@ export const food_list = [
         price: 180,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pasta",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "27",
         name: "Creamy Pasta",
@@ -396,8 +396,8 @@ export const food_list = [
         price: 160,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pasta",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "28",
         name: "Chicken Pasta",
@@ -405,8 +405,8 @@ export const food_list = [
         price: 240,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pasta",
-        stars: "4",
-        type: "non-veg"
+        rating: "4",
+        kind: "non-veg"
     }, {
         _id: "29",
         name: "Buttter Noodles",
@@ -414,8 +414,8 @@ export const food_list = [
         price: 140,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Noodles",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "30",
         name: "Veg Noodles",
@@ -423,8 +423,8 @@ export const food_list = [
         price: 120,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Noodles",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "31",
         name: "Somen Noodles",
@@ -432,8 +432,8 @@ export const food_list = [
         price: 200,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Noodles",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "32",
         name: "Cooked Noodles",
@@ -441,8 +441,8 @@ export const food_list = [
         price: 150,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Noodles",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "33",
         name: "Cheeseburger",
@@ -450,8 +450,8 @@ export const food_list = [
         price: 100,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Burger",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "34",
         name: "Veggie Burger",
@@ -459,8 +459,8 @@ export const food_list = [
         price: 70,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Burger",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "35",
         name: "Chicken Burger",
@@ -468,8 +468,8 @@ export const food_list = [
         price: 150,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Burger",
-        stars: "4",
-        type: "non-veg"
+        rating: "4",
+        kind: "non-veg"
     }, {
         _id: "36",
         name: "BBQ Burger",
@@ -477,8 +477,8 @@ export const food_list = [
         price: 180,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Burger",
-        stars: "4",
-        type: "non-veg"
+        rating: "4",
+        kind: "non-veg"
     }, {
         _id: "37",
         name: "Margherita pizza",
@@ -486,8 +486,8 @@ export const food_list = [
         price: 130,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pizza",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }, {
         _id: "38",
         name: "Pepperoni pizza",
@@ -495,8 +495,8 @@ export const food_list = [
         price: 230,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pizza",
-        stars: "4",
-        type: "non-veg"
+        rating: "4",
+        kind: "non-veg"
     }, {
         _id: "39",
         name: "Chicken pizza",
@@ -504,8 +504,8 @@ export const food_list = [
         price: 300,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pizza",
-        stars: "4",
-        type: "non-veg"
+        rating: "4",
+        kind: "non-veg"
     }, {
         _id: "40",
         name: "Mushroom Pizza",
@@ -513,7 +513,7 @@ export const food_list = [
         price: 180,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pizza",
-        stars: "4",
-        type: "veg"
+        rating: "4",
+        kind: "veg"
     }
 ]
