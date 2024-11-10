@@ -75,7 +75,7 @@ const deduplicateFoodList = (data) => {
       }
     };
     loadData();
-  }, []); // Empty dependency array ensures it runs only once on mount
+  }, []);
 
   const contextValue = {
     food_list,
