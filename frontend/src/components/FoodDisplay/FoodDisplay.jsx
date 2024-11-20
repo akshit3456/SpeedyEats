@@ -16,7 +16,7 @@ const FoodDisplay = ({ category }) => {
                     {
                         // This if condition helps to filter all items.
                         if (category === 'All' || category === item.category) {
-                            return <FoodItem key={index} id={item._id} name={item.name} stars={item.stars} description={item.description} price={item.price} image={item.image} type = {item.type}/>
+                            return <FoodItem key={index} id={item._id} name={item.name} description={item.description} price={item.price} image={item.image} kind={item.kind} rating={item.rating}/>
                         }
                     }
                 })}

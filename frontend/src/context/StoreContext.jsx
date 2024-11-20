@@ -1,95 +1,72 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
-export const StoreContext = createContext(null);
+export const StoreContext = createContext(null)
 
 const StoreContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState({});
-  const url = "http://localhost:4000";
-  const [token, setToken] = useState("");
-  const [food_list, setFoodList] = useState([]);
 
-  // Function to deduplicate food items based on their _id
-const deduplicateFoodList = (data) => {
-    console.log("Before deduplication:", data);  // Log before deduplication
-    const uniqueItems = Array.from(new Set(data.map(item => item._id)))
-      .map(id => data.find(item => item._id === id));
-    console.log("After deduplication:", uniqueItems); // Log after deduplication
-    return uniqueItems;
-  };
-  
+    // This property is used for add and remove item in cart
+    const [cartItems, setCartItems] = useState({});
+    const url = "http://localhost:4000";
+    const [token,setToken] = useState("");
+    const [food_list,setFoodList] = useState([]);
 
-  // Add item to cart
-  const addToCart = (itemId) => {
-    setCartItems((prev) => {
-      const newCount = prev[itemId] ? prev[itemId] + 1 : 1;
-      return { ...prev, [itemId]: newCount };
-    });
-  };
-
-  // Remove item from cart
-  const removeFromCart = (itemId) => {
-    setCartItems((prev) => {
-      const newCount = prev[itemId] > 1 ? prev[itemId] - 1 : 0;
-      const updatedCart = { ...prev, [itemId]: newCount };
-      if (updatedCart[itemId] <= 0) delete updatedCart[itemId];
-      return updatedCart;
-    });
-  };
-
-  // Get the total amount of cart items
-  const getTotalCartAmount = () => {
-    let totalAmount = 0;
-    for (const itemId in cartItems) {
-      if (cartItems[itemId] > 0) {
-        const itemInfo = food_list.find((product) => product._id === itemId);
-        if (itemInfo) totalAmount += itemInfo.price * cartItems[itemId];
-      }
+    const addToCart = (itemId) => {
+        if (!cartItems[itemId]) {
+            setCartItems((prev) => ({ ...prev, [itemId]: 1 }))
+        }
+        else {
+            setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
+        }
     }
-    return totalAmount;
-  };
 
-  // Fetch food list only once and store it
-  const fetchFoodList = async () => {
-    try {
-      const response = await axios.get(`${url}/api/food/list`);
-      if (response.data.success) {
-        const uniqueFoodItems = deduplicateFoodList(response.data.data);
-        console.log(uniqueFoodItems);  // Log to verify no duplicates
-        setFoodList(uniqueFoodItems);
-      } else {
-        console.error('Error fetching food list');
-      }
-    } catch (error) {
-      console.error('An error occurred while fetching the food list');
+    const removeFromCart = (itemId) => {
+        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
     }
-  };
 
-  // Load data on initial render
-  useEffect(() => {
-    const loadData = async () => {
-      await fetchFoodList();
-      const storedToken = localStorage.getItem("token");
-      if (storedToken) {
-        setToken(storedToken);
-      }
-    };
-    loadData();
-  }, []);
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        for (const item in cartItems) {
+            if (cartItems[item] > 0) {
+                let itemInfo = food_list.find((product) => product._id === item);
+                totalAmount += itemInfo.price * cartItems[item];
+            }
+        }
+        return totalAmount;
+    }
 
-  const contextValue = {
-    food_list,
-    cartItems,
-    setCartItems,
-    addToCart,
-    removeFromCart,
-    getTotalCartAmount,
-    url,
-    token,
-    setToken,
-  };
+    const fetchFoodList = async() =>{
+        const response = await axios.get(url+"/api/food/list");
+        setFoodList(response.data.data);
+    }
 
-  return <StoreContext.Provider value={contextValue}>{props.children}</StoreContext.Provider>;
-};
+    useEffect(()=>{
+        async function loadData() {
+            await fetchFoodList();
+            if (localStorage.getItem("token")) {
+                setToken(localStorage.getItem("token")); 
+            }
+        }
+        loadData();
+    },[])
 
-export default StoreContextProvider;
+    const contextValue = {
+        food_list,
+        cartItems,
+        setCartItems,
+        addToCart,
+        removeFromCart,
+        getTotalCartAmount,
+        url,
+        token,
+        setToken,
+    }
+
+    return (
+        <StoreContext.Provider value={contextValue}>
+            {props.children}
+        </StoreContext.Provider>
+    )
+}
+
+export default StoreContextProvider
