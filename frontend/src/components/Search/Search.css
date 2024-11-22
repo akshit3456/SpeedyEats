@@ -1,0 +1,100 @@
+.search-bar{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.search-pincode{
+    border: 2px solid black;
+    width: 50vw;
+    height: 6vh;
+    box-shadow: 1px 1px 4px rgb(60, 57, 57);
+    border-style: none;
+    border-radius: 6px;
+}
+
+.location-text{
+     color: rgb(130, 130, 130);;
+}
+
+.location-icon{
+    margin-top: 2px;
+    color: rgb(242, 78, 94);
+    
+}
+
+.down-arrow{
+    margin-top: 1px;
+    margin-left: 80px;
+    color: rgb(87, 83, 83);;
+}
+
+.down-arrow {
+    transition: transform 0.3s ease;
+}
+  
+.down-arrow.rotate-up {
+    transform: rotate(180deg);
+}
+
+.search-location{
+    margin: 13px 13px;
+    display: flex;
+    gap: 8px;
+}
+.location-box{
+    width: 300px;
+    height: 80px;
+    position: absolute;
+    background-color: white;
+    z-index: 10;
+    margin-top: 50px;
+    border-radius: 6px;
+    box-shadow: 1px 1px 4px rgb(60, 57, 57);
+    left: 5;
+}
+
+.location-box:hover{
+    background-color:#f5f5f5;
+}
+
+.gps-enable{
+    display: flex;
+    margin-top: 15px;
+    margin-left: 15px;
+    gap: 12px;
+    color: rgb(239, 79, 95);
+}
+
+.gps-icon{
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.gps-text{
+    text-decoration: none;
+    font-size: large;
+    cursor: pointer;
+}
+
+.gps-textt{
+    display: flex;
+    margin-left: 43px;
+    font-size: 14px;
+    margin-top: 3px;
+    color: rgb(156, 156, 156);
+    cursor: pointer;
+}
+
+.divide{
+    border: 0.5px solid rgb(130, 130, 130);;
+}
+
+.search-icon{
+    margin-left: 7px;
+    margin-top: 1px;
+    font-size: larger;
+    color: rgb(130, 130, 130);
+    cursor: pointer;
+}
+  
