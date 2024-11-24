@@ -15,6 +15,7 @@ const addFood = async (req,res)=>{
         image:image_filename,
         rating:req.body.rating,
         kind:req.body.kind,
+        location:req.body.location,
     })
     try {
         await food.save();
@@ -29,11 +30,17 @@ const addFood = async (req,res)=>{
 
 const listfood = async(req,res)=>{
     try {
-        const foods = await foodModel.find({});
+        const {location}=req.query;
+        if(!location)
+        {
+            const foods = await foodModel.find({});
+            return res.json({success:true,data:foods}) 
+        }
+        const foods = await foodModel.find({location});
         res.json({success:true,data:foods})
     } catch (error) {
         console.log(error);
-        res.json({success:false,message:'Error'})
+        res.json({success:false,message:'Errors'})
     }
 }
 

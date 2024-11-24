@@ -1,14 +1,23 @@
 /* This CSS is used to make content of navbar in center and align. */
 .navbar{
-    padding: 20px 0px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.navbar-left{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+
+}
+
 /* This CSS is used for main Logo. */
 .navbar .logo{
     width: 160px;
+    margin-left: -70px;
 }
 
 /* This CSS is used for Home,Menu options. */

@@ -8,6 +8,7 @@ const foodSchema = new mongoose.Schema({
     category:{type:String,required:true},
     rating:{type:Number,required:true},
     kind:{type:String,required:true},
+    location:{type:String,required:true},
 })
 
 const foodModel = mongoose.models.food || mongoose.model("food",foodSchema);

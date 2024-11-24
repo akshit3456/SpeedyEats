@@ -2,58 +2,68 @@ import React, { useContext, useState } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
+import ToastNotification from "../../components/ToastNotification/ToastNotification";
 
 const Cart = () => {
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount } =
-    useContext(StoreContext);
+  const {
+    cartItems,
+    food_list,
+    removeFromCart,
+    getTotalCartAmount,
+    discount,
+    setDiscount,
+    promoCode,
+    setPromoCode,
+    deliveryFee,
+    setDeliveryFee,
+  } = useContext(StoreContext);
   const navigate = useNavigate();
 
-  // State for promo code and applied discount
-  const [promoCode, setPromoCode] = useState("");
-  const [discount, setDiscount] = useState(0);
-  const [deliveryFee, setDeliveryFee] = useState(40); // Default delivery fee
-  const [errorMessage, setErrorMessage] = useState(""); // Error message state
+  const [errorMessage, setErrorMessage] = useState("");
+  const [toastMessage, setToastMessage] = useState("");
+  const [showToast, setShowToast] = useState(false);
 
-  // Minimum amount for 'flat50%' promo code
   const MIN_AMOUNT_FOR_FLAT50 = 350;
 
-  // Function to handle promo code submission
   const handlePromoCodeSubmit = () => {
     const totalAmount = getTotalCartAmount();
-
-    // Mock promo code validation
     const validPromoCodes = {
-      "DISCOUNT10": 0.1,  // 10% discount
-      "DISCOUNT20": 0.2,  // 20% discount
-      "flat50%": 0.5,     // 50% discount
+      DISCOUNT10: 0.1,
+      DISCOUNT20: 0.2,
+      flat50: 0.5,
     };
 
-    // Check if promo code is valid
     if (validPromoCodes[promoCode]) {
-      setErrorMessage(""); // Clear error message if the code is valid
+      setErrorMessage("");
 
-      if (promoCode === "flat50%") {
-        // Check if total amount meets the minimum requirement for 'flat50%'
+      if (promoCode === "flat50") {
         if (totalAmount < MIN_AMOUNT_FOR_FLAT50) {
-          setErrorMessage(`The cart total must be at least ₹${MIN_AMOUNT_FOR_FLAT50} to apply this promo code.`);
-          setDiscount(0); // Do not apply discount
-          setDeliveryFee(40); // Keep the original delivery fee
+          setErrorMessage(
+            `The cart total must be at least ₹${MIN_AMOUNT_FOR_FLAT50} to apply this promo code.`
+          );
+          setDiscount(0);
+          setDeliveryFee(40);
         } else {
           setDiscount(validPromoCodes[promoCode]);
-          setDeliveryFee(0);  // Remove delivery fee for 'flat50%' code
-          alert("Promo code applied successfully!");
+          setDeliveryFee(0);
+          showToastNotification("🎉 Promo code applied successfully! 🎉");
         }
       } else {
-        // Apply discount for other valid codes
         setDiscount(validPromoCodes[promoCode]);
-        setDeliveryFee(40); // Keep the original delivery fee
-        alert("Promo code applied successfully!");
+        setDeliveryFee(40);
+        showToastNotification("🎉 Promo code applied successfully! 🎉");
       }
     } else {
-      setErrorMessage("Invalid promo code!"); // Show error if the code is invalid
-      setDiscount(0); // Reset discount
-      setDeliveryFee(40); // Keep original delivery fee
+      showToastNotification("Invalid promo code!");
+      setDiscount(0);
+      setDeliveryFee(40);
     }
+  };
+
+  const showToastNotification = (message) => {
+    setToastMessage(message);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 4000);
   };
 
   const totalAmount = getTotalCartAmount();
@@ -62,6 +72,9 @@ const Cart = () => {
 
   return (
     <div className="cart">
+      {/* Toast Notification */}
+      <ToastNotification message={toastMessage} isVisible={showToast} />
+
       <div className="cart-items">
         <div className="cart-items-title">
           <p>Items</p>
@@ -93,6 +106,7 @@ const Cart = () => {
           }
         })}
       </div>
+
       <div className="cart-bottom">
         <div className="cart-total">
           <h2>Cart Total</h2>
@@ -107,7 +121,6 @@ const Cart = () => {
               <p>₹{totalAmount === 0 ? 0 : deliveryFee}</p>
             </div>
             <hr />
-            {/* Discount Section */}
             <div className="cart-total-details">
               <p>Discount</p>
               <p>₹{discountAmount}</p>
@@ -115,16 +128,15 @@ const Cart = () => {
             <hr />
             <div className="cart-total-details">
               <p>Total</p>
-              <p>₹{finalTotal === 0 ? 0 : finalTotal}</p>
+              <p>₹{finalTotal}</p>
             </div>
           </div>
-          <button onClick={() => navigate("/order")}>
-            PROCEED TO CHECKOUT
-          </button>
+          <button onClick={() => navigate("/order")}>PROCEED TO CHECKOUT</button>
         </div>
+
         <div className="cart-promocode">
           <div>
-            <p>If you have a promo code, Enter it here</p>
+            <p>If you have a promo code, enter it here</p>
             <div className="cart-promocode-input">
               <input
                 type="text"

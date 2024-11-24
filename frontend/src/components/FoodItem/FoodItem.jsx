@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import axios from 'axios';
 import './FoodItem.css';
 import { assets } from '../../assets/assets';
 import { StoreContext } from '../../context/StoreContext';
@@ -46,10 +45,10 @@ const FoodItem = ({ id, name, price,rating,description, image, kind }) => {
         <img className='food-item-image' src={url+"/images/"+image} alt={name} />
 
         {<div className="food-item-type-icon">
-          {kind == "Veg" ? (
-            <img src={assets.green_icon_type} alt="Veg" />
-          ) : (
+          {kind == "Non-Veg" ? (
             <img src={assets.red_icon_type} alt="Non-Veg" />
+          ) : (
+            <img src={assets.green_icon_type} alt="Veg" />
           )}
          </div>}
 
