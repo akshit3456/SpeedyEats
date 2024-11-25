@@ -19,7 +19,11 @@
   .toast-icon {
     font-size: 24px;
   }
-  
+
+  .toast-icon-tick{
+    font-size: 40px;
+  }
+
   .toast-message {
     margin: 0;
   }

@@ -16,13 +16,14 @@ const Cart = () => {
     setPromoCode,
     deliveryFee,
     setDeliveryFee,
+    url,
   } = useContext(StoreContext);
   const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState("");
   const [toastMessage, setToastMessage] = useState("");
   const [showToast, setShowToast] = useState(false);
-
+  
   const MIN_AMOUNT_FOR_FLAT50 = 350;
 
   const handlePromoCodeSubmit = () => {
@@ -32,6 +33,14 @@ const Cart = () => {
       DISCOUNT20: 0.2,
       flat50: 0.5,
     };
+
+    if (totalAmount === 0) {
+      // Display a message if the cart is empty
+      setErrorMessage("Cart is empty. Add items before applying a promo code.");
+      setDiscount(0);
+      setDeliveryFee(40);
+      return;
+    }
 
     if (validPromoCodes[promoCode]) {
       setErrorMessage("");
@@ -91,7 +100,7 @@ const Cart = () => {
             return (
               <div key={index}>
                 <div className="cart-items-title cart-items-item">
-                  <img src={item.image} alt={item.name} />
+                  <img src={url+"/images/"+item.image} alt={item.name} />
                   <p>{item.name}</p>
                   <p>₹{item.price}</p>
                   <p>{cartItems[item._id]}</p>
