@@ -161,3 +161,13 @@
         display: none;
     }
 }
+
+@media (max-width:970px) {
+    .navbar-menu{
+        display: none;
+    }
+
+    .cart-image{
+        margin-right: 10px;
+    }
+}

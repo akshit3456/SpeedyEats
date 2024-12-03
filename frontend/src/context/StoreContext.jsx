@@ -11,9 +11,14 @@ const StoreContextProvider = (props) => {
   const [food_list, setFoodList] = useState([]);
 
   // New states for discount, promo code, and delivery fee
-  const [discount, setDiscount] = useState(0); // Discount percentage
-  const [promoCode, setPromoCode] = useState(""); // Applied promo code
-  const [deliveryFee, setDeliveryFee] = useState(40); // Default delivery fee
+  const [promoCode, setPromoCode] = useState(localStorage.getItem("promoCode") || "");
+  const [discount, setDiscount] = useState(parseFloat(localStorage.getItem("discount")) || 0);
+  const [deliveryFee, setDeliveryFee] = useState(40);
+
+  useEffect(() => {
+    localStorage.setItem("promoCode", promoCode);
+    localStorage.setItem("discount", discount.toString());
+  }, [promoCode, discount]);
 
   const addToCart = async(itemId) => {
     if (!cartItems[itemId]) {

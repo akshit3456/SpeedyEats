@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './FoodItem.css';
-import { assets } from '../../assets/assets';
+import { assets, food_list } from '../../assets/assets';
 import { StoreContext } from '../../context/StoreContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalfAlt, faStar as faStarEmpty } from '@fortawesome/free-solid-svg-icons';

@@ -5,11 +5,15 @@
 
 .search-pincode{
     border: 2px solid black;
-    width: 15vw;
+    width: 100%;
     height: 6vh;
     box-shadow: 1px 1px 4px rgb(60, 57, 57);
     border-style: none;
     border-radius: 6px;
+
+    @media (max-width: 750px) {
+        width: 100%; /* Adjust width for smaller screens */
+    }
 }
 
 .location-text{
@@ -42,9 +46,11 @@
     display: flex;
     gap: 8px;
 }
-.location-box{
-    width: 260px;
-    height: 80px;
+
+.location-box {
+    width: 80%; /* Adjust width for smaller screens */
+    max-width: 260px; /* Limit maximum width */
+    height: auto; /* Adjust height dynamically */
     position: absolute;
     background-color: white;
     z-index: 10;
@@ -52,6 +58,12 @@
     border-radius: 6px;
     box-shadow: 1px 1px 4px rgb(60, 57, 57);
     margin-left: -12px;
+
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+        width: 90%; /* Adjust width for smaller screens */
+        /* margin-top: 60px; Adjust margin for better positioning */
+    }
 }
 
 .location-box:hover{
@@ -84,4 +96,5 @@
     margin-top: 3px;
     color: rgb(156, 156, 156);
     cursor: pointer;
+    margin-bottom: 15px;
 }
