@@ -1,5 +1,5 @@
 import './Search.css';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { MdGpsFixed } from "react-icons/md";
 import { FaLocationDot, FaCaretDown } from "react-icons/fa6";
 import { StoreContext } from '../../context/StoreContext'; // Import context
@@ -9,9 +9,18 @@ const Search = () => {
   const [localLocation, setLocalLocation] = useState('Location'); // Local state for UI
   const { setLocation } = useContext(StoreContext); // Access setLocation from context
 
+  // useEffect(()=>{
+  //   const savedLocation = localStorage.getItem("userLocation");
+  //   if (savedLocation){
+  //     setLocalLocation(savedLocation);
+  //     setLocation(savedLocation);
+  //   }
+  // },[setLocation]);
+
   const toggleBox = () => {
     setLocationBox((prevState) => (prevState === 'closed' ? 'open' : 'closed'));
   };
+
   const getLiveLocation = () => {
     if (navigator.geolocation) {
       setLocalLocation('Fetching location...');
@@ -26,6 +35,7 @@ const Search = () => {
               const fetchedLocation = data.city || data.locality || 'Location not found';
               setLocalLocation(fetchedLocation); // Update local state for UI
               setLocation(fetchedLocation); // Update global state in StoreContext
+              // localStorage.setItem("userLocation",fetchedLocation);
               setLocationBox('closed'); 
             })
             .catch(() => {

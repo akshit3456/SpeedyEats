@@ -15,15 +15,19 @@ const StoreContextProvider = (props) => {
   const [promoCode, setPromoCode] = useState(""); // Applied promo code
   const [deliveryFee, setDeliveryFee] = useState(40); // Default delivery fee
 
-  const addToCart = (itemId) => {
+  const addToCart = async(itemId) => {
     if (!cartItems[itemId]) {
       setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
     } else {
       setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     }
+
+    if (token){
+      await axios.post(url+"/api/cart/add",{itemId},{headers:{token}});
+    }
   };
 
-  const removeFromCart = (itemId) => {
+  const removeFromCart = async(itemId) => {
     if (cartItems[itemId] > 1) {
       setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     } else {
@@ -31,7 +35,15 @@ const StoreContextProvider = (props) => {
       delete updatedCart[itemId];
       setCartItems(updatedCart);
     }
+    if (token){
+      await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}});
+    }
   };
+
+  const loadCartTotal = async(token) =>{
+    const response = await axios.post(url+"/api/cart/get",{},{headers:{token}});
+    setCartItems(response.data.cartData);
+  }
 
   const getTotalCartAmount = () => {
     let totalAmount = 0;
@@ -67,6 +79,7 @@ const StoreContextProvider = (props) => {
       await fetchFoodList();
       if (localStorage.getItem("token")) {
         setToken(localStorage.getItem("token"));
+        await loadCartTotal(localStorage.getItem("token"));
       }
     }
     loadData();
