@@ -87,7 +87,7 @@ const Navbar = ({ setShowLogin }) => {
               <hr />
               <li onClick={logout}><img src={assets.logout_icon} alt="Logout" /><p>Logout</p></li>
               <hr />
-              <li onClick={removeLocation}><MdLocationOff className="location-off" /><p>Remove Location</p></li>
+              <li onClick={removeLocation}><MdLocationOff className="location-off" /><p>Remove</p></li>
             </ul>
           </div>
         )}
