@@ -98,8 +98,12 @@
 }
 
 .error-message {
-    font-size: 14px;
+    font-size: 15px;
     margin-top: 10px;
+}
+
+.error-messages{
+    font-size: 15px;
 }
 
 .toast-notification {

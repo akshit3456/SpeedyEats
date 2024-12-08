@@ -21,6 +21,7 @@ const Cart = () => {
   const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessages, setErrorMessages] = useState("");
   const [toastMessage, setToastMessage] = useState("");
   const [showToast, setShowToast] = useState(false);
   
@@ -74,6 +75,15 @@ const Cart = () => {
     setShowToast(true);
     setTimeout(() => setShowToast(false), 4000);
   };
+
+  const checkCart = () =>{
+    if (totalAmount<=0){
+      setErrorMessages("Cart is empty. Add items before move to checkout.");
+    }else{
+      navigate("/order");
+      setPromoCode("");
+    }
+  }
 
   const totalAmount = getTotalCartAmount();
   const discountAmount = totalAmount * discount;
@@ -140,7 +150,10 @@ const Cart = () => {
               <p>₹{finalTotal}</p>
             </div>
           </div>
-          <button onClick={() => {navigate("/order"); setPromoCode("");}}>PROCEED TO CHECKOUT</button>
+          <button onClick={checkCart}>PROCEED TO CHECKOUT</button>
+          <div>
+          {errorMessages && <p className="error-messages">{errorMessages}</p>}
+          </div>
         </div>
 
         <div className="cart-promocode">
