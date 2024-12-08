@@ -51,7 +51,7 @@ const placeOrder = async (req, res) => {
         line_items: line_Items,
         mode: "payment",
         success_url: `${frontend_url}/verify?success=true&orderId=${newOrder._id}`,
-        cancel_url: `${frontend_url}`,
+        cancel_url: `${frontend_url}/verify?success=flase&orderId=${newOrder._id}`,
       });
   
       res.json({ success: true, session_url: session.url });
@@ -59,6 +59,22 @@ const placeOrder = async (req, res) => {
       console.error("Error placing order:", error);
       res.json({ success: false, message: "Error placing the order" });
     }
-  };  
+  };
 
-export {placeOrder};
+  const verifyOrder = async(req,res) =>{
+    const {orderId,success} = req.body;
+    try {
+      if (success == "true"){
+          await orderModel.findByIdAndUpdate(orderId,{payment:"true"});
+          res.json({success:true,message:"Paid"});
+      }else{
+        await orderModel.findByIdAndDelete(orderId);
+        res.json({success:false,message:"Not Paid"});
+      }
+    } catch (error) {
+      console.log(error);
+      res.json({success:false,message:"Error"});
+    }
+  }
+
+export {placeOrder,verifyOrder};
