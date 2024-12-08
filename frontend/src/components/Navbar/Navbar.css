@@ -156,6 +156,11 @@
     color: tomato;
 }
 
+.location-off{
+    color: tomato;
+    font-size: large;
+}
+
 @media (max-width:750px) {
     .navbar-menu{
         display: none;

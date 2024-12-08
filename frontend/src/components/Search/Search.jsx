@@ -9,13 +9,13 @@ const Search = () => {
   const [localLocation, setLocalLocation] = useState('Location'); // Local state for UI
   const { setLocation } = useContext(StoreContext); // Access setLocation from context
 
-  // useEffect(()=>{
-  //   const savedLocation = localStorage.getItem("userLocation");
-  //   if (savedLocation){
-  //     setLocalLocation(savedLocation);
-  //     setLocation(savedLocation);
-  //   }
-  // },[setLocation]);
+  useEffect(()=>{
+    const savedLocation = localStorage.getItem("userLocation");
+    if (savedLocation){
+      setLocalLocation(savedLocation);
+      setLocation(savedLocation);
+    }
+  },[setLocation]);
 
   const toggleBox = () => {
     setLocationBox((prevState) => (prevState === 'closed' ? 'open' : 'closed'));
@@ -24,6 +24,8 @@ const Search = () => {
   const getLiveLocation = () => {
     if (navigator.geolocation) {
       setLocalLocation('Fetching location...');
+
+      localStorage.setItem("userLocation",localLocation);
 
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -35,7 +37,7 @@ const Search = () => {
               const fetchedLocation = data.city || data.locality || 'Location not found';
               setLocalLocation(fetchedLocation); // Update local state for UI
               setLocation(fetchedLocation); // Update global state in StoreContext
-              // localStorage.setItem("userLocation",fetchedLocation);
+              localStorage.setItem("userLocation",fetchedLocation);
               setLocationBox('closed'); 
             })
             .catch(() => {
