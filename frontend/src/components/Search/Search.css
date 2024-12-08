@@ -29,7 +29,8 @@
 .down-arrow{
     margin-top: 1px;
     margin-left: 80px;
-    color: rgb(87, 83, 83);;
+    color: rgb(87, 83, 83);
+    margin-right: 2px;
 }
 
 .down-arrow {
@@ -48,13 +49,13 @@
 }
 
 .location-box {
-    width: 80%; /* Adjust width for smaller screens */
+    width: 50%; /* Adjust width for smaller screens */
     max-width: 260px; /* Limit maximum width */
     height: auto; /* Adjust height dynamically */
     position: absolute;
     background-color: white;
     z-index: 10;
-    margin-top: 50px;
+    margin-top: 46px;
     border-radius: 6px;
     box-shadow: 1px 1px 4px rgb(60, 57, 57);
     margin-left: -12px;
@@ -97,4 +98,32 @@
     color: rgb(156, 156, 156);
     cursor: pointer;
     margin-bottom: 15px;
+}
+
+@media (max-height: 769px){
+    .location-icon{
+        margin-top: -2px;
+        margin-left: 2px;
+    }
+    
+    .location-text{
+        margin-top: -3px;
+        margin-left: 2px;
+    }
+
+    .down-arrow{
+        margin-top: -2px;
+        margin-right: 2px;
+    }
+
+    .location-box{
+        margin-top: 42px;
+    }
+
+}
+
+@media (max-width:650px){
+    .location-box{
+        margin-top: 53px;
+    }
 }

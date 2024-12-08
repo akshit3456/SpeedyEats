@@ -59,8 +59,8 @@
 
 .right-arrow{
     position: absolute;
-    margin-left: 72rem;
-    margin-top: -107px;
+    margin-left: 81vw;
+    margin-top: -105px;
     font-size: xx-large;
 }
 
@@ -84,5 +84,16 @@
     .explore-menu-text{
         max-width: 100%;
         font-size: 14px;
+    }
+}
+
+@media (max-width:1300px) {
+    .left-arrow{
+        margin-left: -33px;
+    }
+
+    .right-arrow{
+        margin-top: -88px;
+        /* margin-left: -10px; */
     }
 }

@@ -9,7 +9,7 @@ const Navbar = ({ setShowLogin }) => {
 
   const [menu, setMenu] = useState("home");
 
-  const {getTotalCartAmount,token,setToken} = useContext(StoreContext);
+  const {getTotalCartAmount,token,setToken,setPromoCode} = useContext(StoreContext);
 
   const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ const Navbar = ({ setShowLogin }) => {
           {
             token && (
               <>
-                <Link to='/cart'> <img className='cart-image' src={assets.basket_icon} alt="" /></Link>
+                <Link to='/cart'> <img onClick={() => setPromoCode("")} className='cart-image' src={assets.basket_icon} alt="" /></Link>
                 <div className={getTotalCartAmount()===0?"":"dot"}></div>
               </>
             )

@@ -103,3 +103,9 @@
         opacity: 1;
     }
 }
+
+@media (max-width:650px) {
+    .food-item-image{
+        height: 50vw;
+    }
+}

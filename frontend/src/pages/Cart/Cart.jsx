@@ -25,7 +25,7 @@ const Cart = () => {
   const [showToast, setShowToast] = useState(false);
   
   const MIN_AMOUNT_FOR_FLAT50 = 350;
-
+  
   const handlePromoCodeSubmit = () => {
     const totalAmount = getTotalCartAmount();
     const validPromoCodes = {
@@ -140,7 +140,7 @@ const Cart = () => {
               <p>₹{finalTotal}</p>
             </div>
           </div>
-          <button onClick={() => navigate("/order")}>PROCEED TO CHECKOUT</button>
+          <button onClick={() => {navigate("/order"); setPromoCode("");}}>PROCEED TO CHECKOUT</button>
         </div>
 
         <div className="cart-promocode">
