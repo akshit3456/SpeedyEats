@@ -6,11 +6,8 @@ import Cart from './pages/Cart/Cart'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
-<<<<<<< HEAD
 import Verify from './pages/Verify/Verify'
 import MyOrders from './pages/MyOrders/MyOrders'
-=======
->>>>>>> origin/main
 
 const App = () => {
 
@@ -25,11 +22,8 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/order' element={<PlaceOrder />} />
-<<<<<<< HEAD
           <Route path='/verify' element={<Verify/>} /> 
           <Route path='/myorders' element={<MyOrders/>} /> 
-=======
->>>>>>> origin/main
         </Routes>
       </div>
       <Footer />

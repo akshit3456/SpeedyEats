@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import { response } from "express";
-=======
->>>>>>> origin/main
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
 import Stripe from "stripe";
@@ -12,20 +9,12 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const placeOrder = async (req, res) => {
     const frontend_url = "http://localhost:5173";
     try {
-<<<<<<< HEAD
       const { userId, items, finalAnount ,discountAmount, deliveryFee, address,finalTotal} = req.body;
-=======
-      const { userId, items, discountAmount, deliveryFee, totalAmount, address} = req.body;
->>>>>>> origin/main
       // Save the order to the database
       const newOrder = new orderModel({
         userId,
         items,
-<<<<<<< HEAD
         amount: finalTotal,
-=======
-        amount: totalAmount,
->>>>>>> origin/main
         address,
       });
       await newOrder.save();
@@ -56,24 +45,15 @@ const placeOrder = async (req, res) => {
           quantity: 1,
         });
       }
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> origin/main
       // Create Stripe session
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         line_items: line_Items,
         mode: "payment",
         success_url: `${frontend_url}/verify?success=true&orderId=${newOrder._id}`,
-<<<<<<< HEAD
         cancel_url: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`,
       });      
-=======
-        cancel_url: `${frontend_url}/verify?success=flase&orderId=${newOrder._id}`,
-      });
->>>>>>> origin/main
   
       res.json({ success: true, session_url: session.url });
     } catch (error) {
@@ -98,7 +78,6 @@ const placeOrder = async (req, res) => {
     }
   }
 
-<<<<<<< HEAD
   const userOrders = async (req,res) =>{
     try {
       const orders = await orderModel.find({userId:req.body.userId});
@@ -110,6 +89,3 @@ const placeOrder = async (req, res) => {
   }
 
 export {placeOrder,verifyOrder,userOrders};
-=======
-export {placeOrder,verifyOrder};
->>>>>>> origin/main
