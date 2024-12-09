@@ -32,7 +32,11 @@ const Cart = () => {
     const validPromoCodes = {
       DISCOUNT10: 0.1,
       DISCOUNT20: 0.2,
+<<<<<<< HEAD
       FLAT50: 0.5,
+=======
+      flat50: 0.5,
+>>>>>>> origin/main
     };
 
     if (totalAmount === 0) {
@@ -46,7 +50,11 @@ const Cart = () => {
     if (validPromoCodes[promoCode]) {
       setErrorMessage("");
 
+<<<<<<< HEAD
       if (promoCode === "FLAT50") {
+=======
+      if (promoCode === "flat50") {
+>>>>>>> origin/main
         if (totalAmount < MIN_AMOUNT_FOR_FLAT50) {
           setErrorMessage(
             `The cart total must be at least ₹${MIN_AMOUNT_FOR_FLAT50} to apply this promo code.`

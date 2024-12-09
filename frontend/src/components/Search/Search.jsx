@@ -39,7 +39,10 @@ const Search = () => {
               setLocation(fetchedLocation); // Update global state in StoreContext
               localStorage.setItem("userLocation",fetchedLocation);
               setLocationBox('closed'); 
+<<<<<<< HEAD
               window.location.reload();
+=======
+>>>>>>> origin/main
             })
             .catch(() => {
               setLocalLocation('Unable to fetch location'); 

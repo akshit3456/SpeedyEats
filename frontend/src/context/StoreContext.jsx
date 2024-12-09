@@ -6,7 +6,11 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [location, setLocation] = useState(""); // State for location
+<<<<<<< HEAD
   const url = "http://localhost:4000";
+=======
+  const url = "https://localhost:4000";
+>>>>>>> origin/main
   const [token, setToken] = useState("");
   const [food_list, setFoodList] = useState([]);
 
@@ -115,4 +119,8 @@ const StoreContextProvider = (props) => {
   );
 };
 
+<<<<<<< HEAD
 export default StoreContextProvider;
+=======
+export default StoreContextProvider;
+>>>>>>> origin/main
