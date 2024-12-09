@@ -1,0 +1,99 @@
+.explore-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.explore-menu h1{
+    color: #262626;
+    font-weight: 500;
+}
+
+.explore-menu-text{
+    max-width: 60%;
+    color: #808080;
+}
+
+.explore-menu-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    margin: 10px 0px;
+    overflow-x : scroll;
+}
+
+/* This CSS is used to remove menu scroll bar. */
+.explore-menu-list::-webkit-scrollbar{
+    display: none;
+}
+
+.explore-menu-list-item img{
+    width: 8vw;
+    min-width: 80px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+/* This CSS property provide a small line under menu bar. */
+.explore-menu hr{
+    margin: 10px 0px;
+    height: 2px;
+    background-color: #e2e2e2;
+    border: none;
+}
+
+.explore-menu-list-item .active{
+    border: 4px solid tomato;
+    padding: 0px;
+} 
+
+.left-arrow{
+    position: absolute;
+    margin-top: 55px;
+    margin-left: -50px;
+    font-size: xx-large;
+}
+
+.right-arrow{
+    position: absolute;
+    margin-left: 81vw;
+    margin-top: -105px;
+    font-size: xx-large;
+}
+
+.left-arrow, .right-arrow {
+    cursor: pointer;
+    font-size: 24px;
+    color: #ccc; /* Default dull color */
+    transition: color 0.3s ease;
+}
+  
+.left-arrow.active, .right-arrow.active {
+    color: tomato; /* Bright color for active arrows */
+}
+  
+.left-arrow.inactive, .right-arrow.inactive {
+    color: #ccc; /* Dull color for inactive arrows */
+    pointer-events: none; /* Disable click */
+}
+
+@media (max-width:1050px) {
+    .explore-menu-text{
+        max-width: 100%;
+        font-size: 14px;
+    }
+}
+
+@media (max-width:1300px) {
+    .left-arrow{
+        margin-left: -33px;
+    }
+
+    .right-arrow{
+        margin-top: -88px;
+        /* margin-left: -10px; */
+    }
+}

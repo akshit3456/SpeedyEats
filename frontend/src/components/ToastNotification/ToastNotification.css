@@ -1,0 +1,49 @@
+.toast-notification {
+    position: fixed;
+    top: 15px;
+    right: 30px;
+    background-color: tomato;
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 19px;
+    font-weight: bold;
+    z-index: 1000;
+    animation: slideIn 0.5s ease, fadeOut 2.5s ease 2s forwards;
+  }
+  
+  .toast-icon {
+    font-size: 24px;
+  }
+
+  .toast-icon-tick{
+    font-size: 40px;
+  }
+
+  .toast-message {
+    margin: 0;
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    20% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+  

@@ -1,0 +1,47 @@
+.toast {
+  position: fixed;
+  top: 15px;  /* Space from the top */
+  right: 30px;  /* Space from the right */
+  padding: 20px 30px;  /* Adjusted padding for balance */
+  font-size: 19px;  /* Increased font size for larger message */
+  font-weight: bold;
+  color: white;
+  max-width: 500px;  /* Keeping the width large enough */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);  /* Subtle shadow */
+  border-radius: 12px;  /* Rounded corners */
+  animation: slideIn 0.5s ease, fadeOut 2.5s ease 2s forwards;
+  z-index: 1000;
+}
+
+.toast.success {
+  background-color: tomato;
+}
+
+.toast.error {
+  background-color: #dc3545;
+}
+
+.toast.info {
+  background-color: #ffc107;
+}
+
+@keyframes slideIn {
+  0% {
+    top: -100px;  /* Adjusted for medium size */
+    opacity: 0;
+  }
+  100% {
+    top: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: -100px;  /* Adjusted for medium size */
+  }
+}
