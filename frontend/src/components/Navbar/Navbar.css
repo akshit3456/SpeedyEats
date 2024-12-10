@@ -24,10 +24,47 @@
 .navbar-menu{
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 20px; /* Increased gap for better spacing */
     color: #49557e;
     font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1.5px; /* Slightly more letter spacing for clean look */
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
 }
+
+.navbar-menu li{
+    position: relative; /* To create 3D effects */
+    cursor: pointer;
+}
+
+.navbar-menu a{
+    text-decoration: none; /* Remove underline */
+    color: #49557e; /* Default color */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    position: relative;
+    padding-bottom: 5px; /* Small padding for better visual appeal */
+}
+
+.navbar-menu a:hover {
+    color:  tomato; /* Hover color */
+    transform: translateY(-4px); /* Slight lift effect */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2); /* Adding subtle 3D shadow */
+}
+
+/* Active state */
+.navbar-menu .active{
+    color: tomato; /* Active item color */
+    font-weight: bold; /* Bold font for active item */
+    border-bottom: 2px solid tomato; /* Underline effect on active item */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Subtle depth */
+}
+
+.navbar-menu a:hover,
+.navbar-menu .active {
+    transform: translateY(-4px); /* Ensure the hover effect works on active too */
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /*Hover glow effect*/
+}
+
 
 /* This CSS is used for the right side of the navbar. */
 .navbar-right{
