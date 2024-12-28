@@ -11,10 +11,6 @@
     max-width: max(30%,500px);
 }
 
-.place-order-left P{
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
 .place-order-left .title{
     font-size: 30px;
     font-weight: 600;

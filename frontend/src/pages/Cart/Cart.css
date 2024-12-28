@@ -37,10 +37,6 @@
     gap: max(12vw,20px);
 }
 
-.cart-total h2{
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
 .cart-total{
     flex: 1;
     display: flex;
